@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: 'http://localhost:7228/api',
+  auth0: {
+    domain: 'YOUR_AUTH0_APP_DOMAIN',
+    clientId: 'YOUR_AUTH0_APP_CLIENT_ID'
+  }
 };
 
 /*
