@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: 'http://localhost:7228/api',
+  auth0: {
+    domain: 'your-tenant.auth0.com',
+    clientId: 'your-client-id',
+    authorizationParams: {
+      redirect_uri: window.location.origin
+    }
+  }
 };
 
 /*

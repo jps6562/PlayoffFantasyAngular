@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,10 @@ import { Component } from '@angular/core';
           <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
           <a routerLink="/teams" routerLinkActive="active">Teams</a>
           <a routerLink="/about" routerLinkActive="active">About</a>
+          <button *ngIf="auth.isAuthenticated$ | async; else loginBtn" (click)="auth.logout()" class="logout-btn">Logout</button>
+          <ng-template #loginBtn>
+            <button (click)="auth.loginWithRedirect()" class="login-btn">Login</button>
+          </ng-template>
         </nav>
       </header>
 
@@ -29,4 +34,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(public auth: AuthService) {}
+
+  ngOnInit(): void {}
+}
