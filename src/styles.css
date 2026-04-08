@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #1b2a4b 0%, #0f182c 40%, #080c17 100%);
+  color: #f4f7ff;
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: rgba(12, 18, 35, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #5c8dff, #4d6cff);
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(38, 102, 255, 0.28);
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #d2d8ff;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #fff;
+  background: rgba(86, 124, 255, 0.2);
+}
+
+main {
+  flex: 1;
+  width: min(1200px, calc(100% - 48px));
+  margin: 24px auto 0;
+  padding-bottom: 40px;
+}
+
+.page-section {
+  background: rgba(15, 23, 48, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.page-section h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.page-section p {
+  max-width: 760px;
+  line-height: 1.75;
+  color: #c7d0ff;
+}
+
+.feature-grid,
+.about-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.feature-grid article,
+.about-grid > div,
+.team-list li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.feature-grid article h2,
+.team-list li h3,
+.about-grid h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+footer {
+  padding: 18px 32px 24px;
+  text-align: center;
+  color: #9aabff;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 760px) {
+  .feature-grid,
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-grid article {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  nav {
+    justify-content: center;
+  }
+}
