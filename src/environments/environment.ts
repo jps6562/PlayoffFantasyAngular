@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:7228/api',
   auth0: {
-    domain: 'YOUR_AUTH0_APP_DOMAIN',
-    clientId: 'YOUR_AUTH0_APP_CLIENT_ID'
+    domain: 'dev-x7ylktswpnvh1233.us.auth0.com',
+    clientId: 'z3Bm23FJuaf5B7vGBH6qBBVJPZv9zC4P'
   }
 };
 
