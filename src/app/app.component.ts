@@ -17,7 +17,7 @@ import { AuthService } from '@auth0/auth0-angular';
         <div class="topbar-actions">
           <nav>
             <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-            <a routerLink="/teams" routerLinkActive="active">Teams</a>
+            <a *ngIf="auth.isAuthenticated$ | async" routerLink="/league" routerLinkActive="active">League</a>
             <a routerLink="/about" routerLinkActive="active">About</a>
           </nav>
 

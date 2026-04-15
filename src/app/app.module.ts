@@ -4,13 +4,13 @@ import { AuthModule } from "@auth0/auth0-angular";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { HomeComponent } from "./home.component";
-import { TeamsComponent } from "./teams.component";
-import { AboutComponent } from "./about.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { LeagueComponent } from "./pages/league/league.component";
+import { AboutComponent } from "./pages/about/about.component";
 import { environment } from "../environments/environment";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, TeamsComponent, AboutComponent],
+  declarations: [AppComponent, HomeComponent, LeagueComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
