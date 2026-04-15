@@ -65,6 +65,42 @@ nav a.active {
   background: rgba(86, 124, 255, 0.2);
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-actions button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #5c8dff, #4d6cff);
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+}
+
+.auth-actions button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.user-label {
+  display: inline-block;
+  color: #d2d8ff;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
 main {
   flex: 1;
   width: min(1200px, calc(100% - 48px));
