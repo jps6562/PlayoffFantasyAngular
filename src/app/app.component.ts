@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,22 @@ import { Component } from '@angular/core';
             <p>Your playoff lineup companion</p>
           </div>
         </div>
-        <nav>
-          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-          <a routerLink="/teams" routerLinkActive="active">Teams</a>
-          <a routerLink="/about" routerLinkActive="active">About</a>
-        </nav>
+
+        <div class="topbar-actions">
+          <nav>
+            <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            <a routerLink="/teams" routerLinkActive="active">Teams</a>
+            <a routerLink="/about" routerLinkActive="active">About</a>
+          </nav>
+
+          <div class="auth-actions">
+            <button *ngIf="!(auth.isAuthenticated$ | async)" (click)="login()">Log in</button>
+            <button *ngIf="auth.isAuthenticated$ | async" (click)="logout()">Log out</button>
+            <span *ngIf="auth.user$ | async as user" class="user-label">
+              {{ user.name || user.email }}
+            </span>
+          </div>
+        </div>
       </header>
 
       <main>
@@ -29,4 +41,14 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public auth: AuthService) {}
+
+  login(): void {
+    this.auth.loginWithRedirect();
+  }
+
+  logout(): void {
+    this.auth.logout({ logoutParams: { returnTo: window.location.origin } });
+  }
+}
